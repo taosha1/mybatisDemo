@@ -22,7 +22,7 @@ public class SqlSessionImpl implements SqlSession {
     //创建代理对象
     public <T> T getMapper(Class<T> daoInterfaceClass) {
          return (T) Proxy.newProxyInstance(daoInterfaceClass.getClassLoader(),
-                new Class[]{daoInterfaceClass},
+                new Class[]{daoInterfaceClass} ,
                 new MapperProxy(cfg.getMappers(),connection));
     }
 

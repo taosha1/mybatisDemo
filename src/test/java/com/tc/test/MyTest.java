@@ -18,9 +18,9 @@ public class MyTest {
 
     public static void main(String[] args) {
 
-        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+        InputStream in = Resources.getResourceAsStream("SqlMapConfig.xml");
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
-        SqlSessionFactory factory = builder.build(resourceAsStream);
+        SqlSessionFactory factory = builder.build(in);
         SqlSession sqlSession = factory.openSession();
         UserDao mapper = sqlSession.getMapper(UserDao.class);
         List<User> all = mapper.getAll();
@@ -29,7 +29,7 @@ public class MyTest {
         }
         try {
             sqlSession.close();
-            resourceAsStream.close();
+            in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
