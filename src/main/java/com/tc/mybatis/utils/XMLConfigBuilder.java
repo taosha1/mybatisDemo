@@ -1,11 +1,9 @@
 package com.tc.mybatis.utils;
 
-//import com.tc.mybatis.sqlsession.mappers.Mapper;
-//import com.tc.mybatis.annotations.Select;
-//import com.tc.mybatis.sqlsession.Configuration;
-//import java.lang.reflect.Method;
-//import java.lang.reflect.ParameterizedType;
-//import java.lang.reflect.Type;
+import com.tc.mybatis.annotations.Select;
+import java.lang.reflect.Method;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import com.tc.mybatis.cfg.Configuration;
 import com.tc.mybatis.cfg.Mapper;
 import com.tc.mybatis.io.Resources;
@@ -13,7 +11,6 @@ import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -88,14 +85,14 @@ public class XMLConfigBuilder {
                     //给configuration中的mappers赋值
                     cfg.setMappers(mappers);
                 } else {
-//                    System.out.println("使用的是注解");
-//                    //表示没有resource属性，用的是注解
-//                    //获取class属性的值
-//                    String daoClassPath = mapperElement.attributeValue("class");
-//                    //根据daoClassPath获取封装的必要信息
-//                    Map<String, Mapper> mappers = loadMapperAnnotation(daoClassPath);
-//                    //给configuration中的mappers赋值
-//                    cfg.setMappers(mappers);
+                    System.out.println("使用的是注解");
+                    //表示没有resource属性，用的是注解
+                    //获取class属性的值
+                    String daoClassPath = mapperElement.attributeValue("class");
+                    //根据daoClassPath获取封装的必要信息
+                    Map<String, Mapper> mappers = loadMapperAnnotation(daoClassPath);
+                    //给configuration中的mappers赋值
+                    cfg.setMappers(mappers);
                 }
             }
             //返回Configuration
@@ -167,7 +164,7 @@ public class XMLConfigBuilder {
      * @param daoClassPath
      * @return
      */
-    /*
+
     private static Map<String, Mapper> loadMapperAnnotation(String daoClassPath) throws Exception {
         //定义返回值对象
         Map<String, Mapper> mappers = new HashMap<String, Mapper>();
@@ -214,6 +211,6 @@ public class XMLConfigBuilder {
         return mappers;
     }
 
-     */
+
 
 }

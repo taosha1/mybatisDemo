@@ -18,13 +18,13 @@
         </environment>
     </environments>
 
-    <mappers>
-        <mapper resource="com/tc/dao/UserDao.xml"></mapper>
-    </mappers>
-
 <!--    <mappers>-->
-<!--        <mapper class="com.tc.domain.User"></mapper>-->
+<!--        <mapper resource="com/tc/dao/UserDao.xml"></mapper>-->
 <!--    </mappers>-->
+
+    <mappers>
+        <mapper class="com.tc.dao.UserDao"></mapper>
+    </mappers>
     
 </configuration>
 
